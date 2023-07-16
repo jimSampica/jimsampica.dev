@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     env:
-      projectPath: .\src\src.csproj
+      projectPath: .\src\MySite.csproj
     steps:
       - uses: actions/checkout@v2
 

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     </environment>
 </head>
-<body>
+<body hx-boost="true">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div class="container">
@@ -24,10 +24,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-page="/About">About Me</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Privacy">About Me</a>
+                            <a class="nav-link" asp-area="" asp-page="/Blog/Index">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -42,9 +42,11 @@
 
     <environment include="Development">
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/htmx/htmx.js"></script>
     </environment>
     <environment include="Production">
         <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/htmx/htmx.min.js"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)

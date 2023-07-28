@@ -1,0 +1,27 @@
+[home](../../index) | [blogs](../../blogs)
+
+# Fixing Scrum
+## 2022/04/07
+
+There are a lot of Scrum teams out there. I can't remember who said "Scrum won the agile wars" but it's the truth for better or worse (maybe worse?).
+
+Many teams, however, are just not seeing a lot of benefits from Scrum. There are tons of reasons for this which I won't go into but the Scrum guide has a lot of influence on Scrum in the wild since it is the source of truth from trainers to organizations alike.
+
+I do think there are many teams out there doing good and benefitting a lot while using Scrum. However, I can't help but feel these teams might be okay in its absense. It's hard to tell how much Scrum is actually responsible for or if it is just taking credit for an already established culture. I don't suppose there's an answer here, at least in a hard objective way that we would be satisfied by.
+
+It should be noted that there is great difficulty in making anything general purpose and Scrum attempts to do just that for not only software but general product development (though I've never seen it outside software). I question whether this can be done or if there is just too much to reconcile between domains, processes, people, cultures, and everything in between. 
+
+Regardless, I think it is safe to say that on its face, Scrum doesn't do harm. It is often wielded extremely poorly by trainers and organizations it which is why the language of the Scrum guide is so important and great care is necessary editing it. In order to do it well one has to have a deep understanding of the current state as well as historical context of the software industry. A very difficult position indeed.
+
+I see a lot of discussion (and hatred) for different parts of Scrum on Twitter and sometimes I like to think about what I would do if I was in charge of the framework. What would I change about the Scrum guide? I've dedicated this post to a some "fixes" that I think would help (at least for my context 😊).
+
+The list below is obviously not academic, completely well thought out, or my complete airing of grievances. It's more or less just a few floating thoughts I've had bouncing around in my head for awhile. Because of that I'm sure there are holes. Jeff and Ken make the big bucks to make a guide without holes and I'm unpaid so deal with it.
+
+So here we go...
+
+1. __Old guides should be clearly deprecated.__ More/better broadcasting of new guides and a clear expectation that organizations and teams stop using and referencing old guides. I still see way too many people working with old Scrum knowledge. I can't make them read the guide but at least I could point them to something that says explicitly "Hey this is old and outdated buddy".
+2. __Developers aren't only programmers__. The guide says the team is cross-functional but Scrum teams are still very often constructed as functional silos. Developers = Programmers = Feature Makers. The guide could do a better job of laying out that developers could (should) include other functional areas like database, infrastructure, product, design ect.
+3. __The sprint goal needs a bigger headline.__ Sprint Goal? What's a Sprint Goal? The entire reason to work in sprints, of course. Without it, the sprint becomes an event for a fixed delivery. The focus tends towards outputs instead of outcomes. The team is much more likely to be a feature factory. Far too few teams are giving the sprint goal the weight it deserves. The guide needs to hammer this one hard, without a sprint goal there is no purpose to sprints.
+4. __Making just-in-time improvements should be preferred over retrospectives.__ There are at least a few concepts pulled from _Lean_ and I'd like to see the _andon cord_ concept in Scrum. In the Toyota Production System workers could stop the production line at any time by pulling a cord that sat above them if they detected abnormal conditions. I think in software development a lot of teams are grinding through abnormal conditions in order to get the thing done. A retrospective comes along later and people go "hey, what was that problem we struggled with weeks ago?" and then "well we are past it now so lets just move on" (spoiler: the problem will come back again). The guide needs a greater appreciation for stopping, correcting, then starting again.
+5. __Still too much implication on roles and putting people in boxes.__ Now if you're versed in the 2020 guide you can go "well ackstually roles were replaced with accountabilities". Well the cat's out of the bag, sorry. They are still roles to everybody and attempting to fix everyone's vocabularly at this point is a waste of time. What can be done is focus more on the "what" and less on the "who". The product needs developed. Product decisions need to be made. What should be built first? What should be built last (or never)? All manner of decisions to be made and the Scrum team needs to figure out the people on the team to make them. The Scrum guide should be clear that things like the Product Owner writing some code is just as okay as a Developer who has an idea for the product.
+6. __Technical practices are (still) absent.__ I don't think it's possible to have successful Scrum without good technical practices. It is guaranteed that mountains of technical cruft and debt will shatter any hope of developing a successful product and maintaining it long-term. I generally think the guide could (still) use less prescription but this is an area where it needs more.

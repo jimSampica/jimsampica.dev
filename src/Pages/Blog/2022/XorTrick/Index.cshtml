@@ -8,32 +8,103 @@
 
 <p>Most developers are familiar with the XOR operation but I want to demonstrate a little C# trick I learned from the StackOverflow chat (does this still exist?) some years ago.</p>
 
-XOR is not often explicitly used so it makes it somewhat obsure. Personally, Ive encountered the need to use it very little in the domains I've encountered. As a refresher, here is a truth table for the operation as a function of its inputs.
+<p>XOR is not often explicitly used so it makes it somewhat obsure. Personally, Ive encountered the need to use it very little in the domains I've encountered. 
+    As a refresher, here is a truth table for the operation as a function of its inputs. </p>
 
-| a | b | result |
-| ----------- | ----------- | ------- |
-| 0 | 0 | 0 |
-| 0 | 1 | 1 |
-| 1 | 0 | 1 |
-| 1 | 1 | 0 |
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-sm">
+            <thead>
+                <th>a</th>
+                <th>b</th>
+                <th>result</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-In C# there is a built-in XOR operator `^`. The truth table above can be reproduced through the following statement...
+<p>In C# there is a built-in XOR operator `^`. The truth table above can be reproduced through the following statement...</p>
 
-`var result = a ^ b;`
+<p><code>var result = a ^ b;</code></p>
 
-I haven't seen this operator used very often out in the wild. Because of this it can lead to confusion and the need to analyze it further than the usual operators. However, there's a little trick I learned that produces an equivalent result without the need to use it explicitly. The following statement shows this...
 
-`var result = a != b;`
+<p>I haven't seen this operator used very often out in the wild. Because of this it can lead to confusion and the need to analyze it further than the usual operators. However, there's a little trick I learned that produces an equivalent result without the need to use it explicitly. The following statement shows this...</p>
 
-Now, first thing any developer of salt will say is "does this really produce the same result?" Let's find out using a truth table...
+<p><code>var result = a != b;</code></p>
 
-| a | b | result |
-| ----------- | ----------- | ------- |
-| 0 | 0 | 0 |
-| 0 | 1 | 1 |
-| 1 | 0 | 1 |
-| 1 | 1 | 0 |
+<p>Now, first thing any developer of salt will say is "does this really produce the same result?" Let's find out ...</p>
 
-After some quick mental cycles, yes it does! So as much as I'd love to use the `^` operator I almost always fallback on `!=` to get the same result so that people reading my code can figure out what its doing without needing to lookup syntax.
+<p><code class="my-2">
+0 != 0 ? False
+0 != 1 ? True
+1 != 0 ? True
+1 != 1 ? False
+</code></p>
 
-I haven't tested this broadly but I suspect this is applicable to other "C"-like languages as well.
+
+<p>Putting it together in a truth table</p>
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-sm">
+            <thead>
+                <th>a</th>
+                <th>b</th>
+                <th>result</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                </tr>
+                
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<p>Comparing it with the first table, yes it does! So as much as I'd love to use the `^` operator I almost always fallback on `!=` to get the same result so that people reading my code can figure out what its doing without needing to lookup syntax.</p>
+
+<p>I haven't tested this broadly but I suspect this is applicable to other "C"-like languages as well.</p>

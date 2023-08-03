@@ -1,46 +1,77 @@
-[home](../../index) | [blogs](../../blogs)
+@page
+@{
+    ViewData["Title"] = "Fixed Scope Sprints";
+}
 
-# Fixed Scope Sprints
-## 2021/10/22
+<h1>@ViewData["Title"]</h1>
+<h2>2021/10/22</h2>
 
-Scrum is popular. 
+<p>Scrum is popular.</p>
 
-But so is the accidental struggle so many Scrum teams are having. Anti-patterns, misconceptions, misinterpretations, and plain ole ignorance pop up and it feels like a never ending game of whack-a-mole.
+<p>But so is the accidental struggle so many Scrum teams are having. Anti-patterns, misconceptions, misinterpretations, and plain ole ignorance pop up and it feels like a never ending game of whack-a-mole.</p>
 
-The mole that's been annoying me lately is the misinterpretation that sprints in Scrum are to be the timeboxed delivery of the planned (often dysfunctionally referred to as _committed_) scope that resulted from sprint planning.
+<p>The mole that's been annoying me lately is the misinterpretation that sprints in Scrum are to be the timeboxed delivery of the planned (often dysfunctionally referred to as _committed_) scope that resulted from sprint planning.</p>
 
-We can throw the book at this one quite easily...
+<p>We can throw the book at this one quite easily...</p>
 
-The [2020 Scrum Guide](https://scrumguides.org/scrum-guide.html) has at least a couple things to say about scope (emphasis mine)...
+<p>The <a href="https://scrumguides.org/scrum-guide.html">2020 Scrum Guide</a> has at least a couple things to say about scope (emphasis mine)...</p>
 
-> **Scope may be clarified and renegotiated** with the Product Owner as more is learned.
+<blockquote class="blockquote">
+    <p><strong>Scope may be clarified and renegotiated</strong> with the Product Owner as more is learned.</p>
 
-> The Sprint Goal is created during the Sprint Planning event and then added to the Sprint Backlog. As the Developers work during the Sprint, they keep the Sprint Goal in mind. If the work turns out to be different than they expected, they collaborate with the Product Owner to **negotiate the scope of the Sprint Backlog** within the Sprint without affecting the Sprint Goal.
+    <footer class="blockquote-footer">Page 7 of the 2020 Scrum Guide</footer>
+</blockquote>
+<blockquote class="blockquote">
+    <p>The Sprint Goal is created during the Sprint Planning event and then added to the Sprint Backlog. 
+    As the Developers work during the Sprint, they keep the Sprint Goal in mind. 
+    If the work turns out to be different than they expected, they collaborate with the Product Owner to **negotiate the scope of the Sprint Backlog** within the Sprint without affecting the Sprint Goal.</p>
+    <footer class="blockquote-footer">Page 11 of the 2020 Scrum Guide</footer>
+</blockquote>
 
-If Scrum isn't about delivering a specific scope by a specific time then what is it about? Let's consult the guide again...
+<p>If Scrum isn't about delivering a specific scope by a specific time then what is it about? Let's consult the guide again...</p>
 
-> Commitment: Sprint Goal
->
-> The Sprint Goal is the single objective for the Sprint. Although the Sprint Goal is a commitment by the Developers, it provides flexibility in terms of the exact work needed to achieve it
+<blockquote class="blockquote">
+    <p>Commitment: Sprint Goal</p>
+    <p>The Sprint Goal is the single objective for the Sprint. Although the Sprint Goal is a commitment by the Developers, it provides flexibility in terms of the exact work needed to achieve it.</p>
+    <footer class="blockquote-footer">Page 11 of the 2020 Scrum Guide</footer>
+</blockquote>
 
-The Sprint Goal is what sprints are all about. It is the _single objective for the Sprint_. Note the second sentence referring to scope. The scope to achieve the goal is _flexible_.
+<p>The Sprint Goal is what sprints are all about. 
+    It is the <strong>single objective for the Sprint</strong>. Note the second sentence referring to scope. 
+    <strong></strong>The scope to achieve the goal is _flexible</strong>.
+</p>
 
-So to sum up: **It is normal and it is okay in Scrum to change your plan and your scope**. Scrum is an agile framework. Agile is about flexing scope to maximize customer value. This is reflected in the manifesto through the values... 
+<p>
+    So to sum up: **It is normal and it is okay in Scrum to change your plan and your scope**. 
+    Scrum is an agile framework. 
+    Agile is about flexing scope to maximize customer value. This is reflected in the manifesto through the values... 
+</p>
 
-_Customer collaboration over contract negotiation_. 
+<blockquote class="blockquote">
+    <p>Customer collaboration over contract negotiation.</p>
+    <p></p>Responding to change over following a plan.</p>
+    <footer class="blockquote-footer">3rd value of the Agile manifesto</footer>
+</blockquote>
 
-_Responding to change over following a plan_. 
+<p>and through the principle...</p>
 
-... and through the principle...
+<blockquote class="blockquote">
+   <p>Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage...</p>
+    <footer class="blockquote-footer">2nd principle of the Agile manifesto</footer>
+</blockquote>
 
-_Welcome changing requirements, even late in development. Agile processes harness change for the customer's competitive advantage..._
+<p>Why can't we get good enough at estimates and we can get everything done that we planned?</p>
 
-Why can't we get good enough at estimates and we can get everything done that we planned?
+<p>Complexity and uncertainty are a given in software development (this is what makes estimates near irreducibly hard by the way). 
+    The many decades old <a href="https://en.wikipedia.org/wiki/Project_management_triangle">project management triangle</a>] serves as a reminder 
+    that we can't have all three without giving in to something in some way.</p>
 
-Complexity and uncertainty are a given in software development (this is what makes estimates near irreducibly hard by the way). The many decades old [project management triangle](https://en.wikipedia.org/wiki/Project_management_triangle) serves as a reminder that we can't have all three without giving in to something in some way.
+<img src="~/media/Blog/2021/FixedScopeSprint/ironTriangle.jpg" class="mb-2" />
 
-![iron_triangle](./ironTriangle.jpg)
+<p>Timeboxed "sprints" aren't a trick to beat this. 
+    Consider the following as proof. 
+    Your resources are fixed because you're not adding team members at the beginning of the sprint. 
+    The schedule is fixed because your sprint is timeboxed. If, then, the plan is fixed then your scope fixed. 
+    Thus, all three variables are fixed and you are headed for burnout and/or disaster _in the same manner as typical plan driven (i.e. waterfall) projects are_.</p>
 
-Timeboxed "sprints" aren't a trick to beat this. Consider the following as proof. Your resources are fixed because you're not adding team members at the beginning of the sprint. The schedule is fixed because your sprint is timeboxed. If, then, the plan is fixed then your scope fixed. Thus, all three variables are fixed and you are headed for burnout and/or disaster _in the same manner as typical plan driven (i.e. waterfall) projects are_.
-
-So, let's stop running our sprints like waterfall projects, shall we?
+<p>So, let's stop running our sprints like waterfall projects, shall we?</p>

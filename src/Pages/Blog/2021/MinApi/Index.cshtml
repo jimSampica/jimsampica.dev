@@ -1,80 +1,82 @@
-[home](../../index) | [blogs](../../blogs)
-
-# Razor Pages with .NET 6's Minimal Api
-## 2021/11/22
-
-If you haven't been living under a rock the past few weeks you know the new .NET 6 has released!
-
-One of the new features I've been playing with recently is the new minimal api setup.
-
-The minimal api is easily scaffolded from the following command...
-
-`dotnet new web -o minApi`
-
-This generates a few files and one C# file, `Program.cs`, that we might recognize as a very paired back `Startup.cs`.
-
-![scaffolded](./scaffolded.png)
-
-Running this using `dotnet run` (or even `dotnet watch` 😉) generates the all-too-familiar "Hello World" on the root url path.
-
-![helloWorld](./helloWorld.png)
-
-But maybe we want to have a little api as well as a few nice razor pages? That is easily accomplished by adding only a couple lines of code...
-
-```csharp
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddRazorPages(opts => {
-    opts.RootDirectory = "/Views";
-});
-
-var app = builder.Build();
-
-app.MapRazorPages();
-
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
-
-```
-
-One thing to remember is we don't have to map any additional routes as long as we're following the razor pages convention underneath the `Views` folder (This can be overridden as seen above).
-
-![viewsFolder](./viewsFolder.png)
-
-We'll make a little Hello World page now with some html.
-
-Index.cshtml
-
-<code>
-@@page
-@@model Views.Index
-
-<h1>@Model.Message</h1>
-</code>
-
-Index.cshtml.cs
-
-```csharp
-namespace Views;
-
-using Microsoft.AspNetCore.Mvc.RazorPages;
-
-public class Index : PageModel
-{
-    public string? Message {get;set;}
-
-    public void OnGet()
-    {
-        Message = "Hello World";
-    }
+@page
+@{
+    ViewData["Title"] = " Razor Pages with .NET 6's Minimal Api";
 }
-```
 
-Running this then gives us a big nice Hello World that only html could give.
+<h1>@ViewData["Title"]</h1>
+<h2>2021/10/22</h2>
 
-![helloWorldHtml](./helloWorldHtml.png)
+<p>If you haven't been living under a rock the past few weeks you know the new .NET 6 has released!</p>
 
-And that's it. Pretty awesome. I won't use this for the scale of apps I usually work on but I think it's great the ASP.NET teams are looking at removing boilerplate, giving love to beginners, as well as easily supporting small sites. The script-like setup is very easy to conceptually understand and use as a springboard into bigger solutions.
+<p>One of the new features I've been playing with recently is the new minimal api setup.</p>
 
-Some other breakable toys I made with the minimal api can be found on my [minApi](https://github.com/jamesSampica/minApi) repository.
+<p>The minimal api is easily scaffolded from the following command...</p>
+
+<p><code>dotnet new web -o minApi</code></p>
+
+<p>This generates a few files and one C# file, <code>Program.cs</code>, that we might recognize as a very paired back <code>Startup.cs</code>.</p>
+
+<img src="~/media/Blog/2021/MinApi/scaffolded.png" class="mb-3" />
+
+<p>Running this using <code>dotnet run</code> (or even <code>dotnet watch</code> 😉) generates the all-too-familiar "Hello World" on the root url path.</p>
+
+<img src="~/media/Blog/2021/MinApi/helloWorld.png" class="mb-3" />
+
+<p>But maybe we want to have a little api as well as a few nice razor pages? That is easily accomplished by adding only a couple lines of code...</p>
+
+<pre><code>
+    var builder = WebApplication.CreateBuilder(args);
+
+    builder.Services.AddRazorPages(opts => {
+        opts.RootDirectory = "/Views";
+    });
+
+    var app = builder.Build();
+
+    app.MapRazorPages();
+
+    app.MapGet("/", () => "Hello World!");
+
+    app.Run();
+</code></pre>
+
+<p>One thing to remember is we don't have to map any additional routes as long as we're following the razor pages convention underneath the <code>Views</code> folder (This can be overridden as seen above).</p>
+
+<img src="~/media/Blog/2021/MinApi/viewsFolder.png" class="mb-3" />
+
+<p>We'll make a little Hello World page now with some html.</p>
+
+<code>Index.cshtml</code>
+
+<pre><code>
+    @@page
+    @@model Views.Index
+
+    &lt;h1&gt;@@Model.Message&lt;/h1&gt;
+</code></pre>
+
+<code>Index.cshtml.cs</code>
+
+<pre><code>
+    namespace Views;
+
+    using Microsoft.AspNetCore.Mvc.RazorPages;
+
+    public class Index : PageModel
+    {
+        public string? Message {get;set;}
+
+        public void OnGet()
+        {
+            Message = "Hello World";
+        }
+    }
+</code></pre>
+
+<p>Running this then gives us a big nice Hello World that only html could give.</p>
+
+<img src="~/media/Blog/2021/MinApi/helloWorldHtml.png" class="mb-3" />
+
+<p>And that's it. Pretty awesome. I won't use this for the scale of apps I usually work on but I think it's great the ASP.NET teams are looking at removing boilerplate, giving love to beginners, as well as easily supporting small sites. The script-like setup is very easy to conceptually understand and use as a springboard into bigger solutions.
+
+<p>Some other breakable toys I made with the minimal api can be found on my <a href="https://github.com/jamesSampica/minApi">minApi repository</a></p>

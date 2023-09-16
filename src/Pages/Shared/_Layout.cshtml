@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">James Sampica</a>
+                <a class="navbar-brand fs-4" asp-area="" asp-page="/Index">James Sampica</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,31 +25,20 @@
         </nav> 
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
-        
-        <footer>
-        Get in touch...
-        <a target="_blank" href="https://github.com/jamesSampica">Github</a>
-        <br>
-        <a target="_blank" href="https://stackoverflow.com/users/1950321/james-sampica">StackOverflow</a>
-        <br>
-        <a target="_blank" href="https://www.linkedin.com/in/jamessampica/">LinkedIn</a>
-        <br>
-        <a target="_blank" href="https://twitter.com/JamesSampica">Twitter</a>
+        <footer class="mt-4">
+            <h5>Get in touch...</h5>
+            <p>jtsampica@gmail.com</p>
+            <a target="_blank" href="https://github.com/jamesSampica">Github</a>
+            <br>
+            <a target="_blank" href="https://stackoverflow.com/users/1950321/james-sampica">StackOverflow</a>
+            <br>
+            <a target="_blank" href="https://www.linkedin.com/in/jamessampica/">LinkedIn</a>
+            <br>
+            <a target="_blank" href="https://twitter.com/JamesSampica">Twitter</a>
         </footer>
     </div>
-
-    <environment include="Development">
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/lib/htmx/htmx.js"></script>
-    </environment>
-    <environment include="Production">
-        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="~/lib/htmx/htmx.min.js"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
 </body>
 </html>

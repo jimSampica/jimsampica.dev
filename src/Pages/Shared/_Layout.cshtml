@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark">
+<html data-bs-theme="dark"  class="h-100">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,8 +11,17 @@
     <environment include="Production">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     </environment>
+
+    <style>
+        body {
+            background-image: url(./media/bg.png);
+            background-size: cover;                    
+            background-repeat:no-repeat;
+            background-position: center center; 
+        }
+    </style>
 </head>
-<body hx-boost="true">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3">
             <div class="container">
@@ -28,16 +37,21 @@
         <main role="main">
             @RenderBody()
         </main>
-        <footer class="my-4">
-            <h5>Get in touch...</h5>
-            <p>jtsampica@gmail.com</p>
-            <a target="_blank" href="https://github.com/jamesSampica">Github</a>
-            <br>
-            <a target="_blank" href="https://stackoverflow.com/users/1950321/james-sampica">StackOverflow</a>
-            <br>
-            <a target="_blank" href="https://www.linkedin.com/in/jamessampica/">LinkedIn</a>
-            <br>
-            <a target="_blank" href="https://twitter.com/JamesSampica">Twitter</a>
+        <footer class="row my-4">
+            <div class="col-md-2 my-2">
+                <h5 class="fst-italic">Get in touch...</h6>
+                <a href="mailto:jtsampica@gmail.com">jtsampica@gmail.com</a>
+            </div>
+            <div class="col-md-2 my-2">
+                <h5 class="fst-italic">Elsewhere...</h6>
+                <a target="_blank" href="https://github.com/jamesSampica">Github</a>
+                <br>
+                <a target="_blank" href="https://stackoverflow.com/users/1950321/james-sampica">StackOverflow</a>
+                <br>
+                <a target="_blank" href="https://www.linkedin.com/in/jamessampica/">LinkedIn</a>
+                <br>
+                <a target="_blank" href="https://twitter.com/JamesSampica">Twitter</a>
+            </div>
         </footer>
     </div>
 </body>

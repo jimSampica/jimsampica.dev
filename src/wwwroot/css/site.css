@@ -39,13 +39,13 @@ body {
 
 .console-input:before {
   content: '> ';
-  color: #FC3565;
+  color: #46f01d;
   vertical-align: top;
 }
 
 .output-cmd:before {
   content: '> ';
-  color: #FC3565;
+  color: #46f01d;
   vertical-align: top;
 }
 .output-text:before {

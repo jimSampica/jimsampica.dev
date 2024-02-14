@@ -60,8 +60,13 @@ function goto(cmd) {
         return result
     }
     else {
-        
-        return "<ol><li>LinkedIn</li><li>Twitter</li></ol>"
+        let places = [
+            "1.Github (https://github.com/jamesSampica)",
+            "2.StackOverflow (https://stackoverflow.com/users/1950321/james-sampica)",
+            "3.LinkedIn (https://www.linkedin.com/in/jamessampica/)",
+            "4.Twitter (https://twitter.com/JamesSampica)"
+        ]
+        return "Check me out elsewhere...\n\n" + places.join("\n");
     }
 }
 goto.usage = () => "help goto"

@@ -1,38 +1,23 @@
 <!DOCTYPE html>
-<html data-bs-theme="dark"  class="h-100">
+<html data-bs-theme="dark" class="h-100">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - James Sampica</title>
-    
-     @await RenderSectionAsync("Styles", required: false)
-     @await RenderSectionAsync("Scripts", required: false)
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Styles", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <header>
     </header>
-    <div class="container">
-        <main role="main">
-            @RenderBody()
-        </main>
-        <footer class="row my-4">
-            <div class="col-md-2 my-2">
-                <h5 class="fst-italic">Get in touch...</h6>
-                <a href="mailto:jtsampica@gmail.com">jtsampica@gmail.com</a>
-            </div>
-            <div class="col-md-2 my-2">
-                <h5 class="fst-italic">Elsewhere...</h6>
-                <a target="_blank" href="https://github.com/jamesSampica">Github</a>
-                <br>
-                <a target="_blank" href="https://stackoverflow.com/users/1950321/james-sampica">StackOverflow</a>
-                <br>
-                <a target="_blank" href="https://www.linkedin.com/in/jamessampica/">LinkedIn</a>
-                <br>
-                <a target="_blank" href="https://twitter.com/JamesSampica">Twitter</a>
-            </div>
-        </footer>
-    </div>
+    <main role="main">
+        @RenderBody()
+    </main>
 </body>
 </html>

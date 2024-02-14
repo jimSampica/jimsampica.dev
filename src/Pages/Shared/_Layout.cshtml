@@ -12,14 +12,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     </environment>
 
-    <style>
-        body {
-            background-image: url(./media/bg.png);
-            background-size: cover;                    
-            background-repeat:no-repeat;
-            background-position: center center; 
-        }
-    </style>
+     @await RenderSectionAsync("Scripts", required: false)
 </head>
 <body>
     <header>

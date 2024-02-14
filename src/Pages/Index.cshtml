@@ -3,11 +3,28 @@
     ViewData["Title"] = "Home";
 }
 
+@section Styles
+{
+    <link rel="~/site/site.css" />
+}
+
+@section Scripts
+{
+    <script defer src="~/site/site.js"></script>
+}
+
 <h1 class="d-none">About me</h1>
 
-<img src="~/media/me.jpg" class="rounded float-end p-2 img-responsive" alt="A picture of James Sampica" />
 <h2 class="my-4 display-5"><span class="fst-italic">Hi there.</span> 👋</h2>
 
 <p class="lead">My mission is helping organizations solve complex problems with practical solutions.</p>
 <p class="lead">I enjoy the Microsoft C#/.NET space but love the craft more than any specific technology. I make an impact by taking a holistic approach to solving problems.</p>
 <p class="lead">In my free time I can be found reading books on system design, architecture, and other programming topics.</p>
+
+<div class="console">
+  <div class="console-inner">
+    <div id="outputs">
+    </div>
+    <div class="output-cmd"><textarea autofocus class="console-input" placeholder="Type command..."></textarea></div>
+  </div>
+</div>

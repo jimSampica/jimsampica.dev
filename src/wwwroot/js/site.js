@@ -18,7 +18,8 @@ var cmds = {
     goto,
     echo,
     clear,
-    help
+    help,
+    contact
 }
 
 /*
@@ -53,23 +54,29 @@ function help(cmd) {
 help.usage = () => "help [command]"
 help.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command."
 
+function contact(){
+
+}
+contact.usage = () => "help [command]"
+contact.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command."
+
 function goto(cmd) {
+    let places = [
+        { text: "1.Github", url: "https://github.com/jamesSampica" },
+        { text: "2.StackOverflow", url: "https://stackoverflow.com/users/1950321/james-sampica" },
+        { text: "3.LinkedIn", url: "https://www.linkedin.com/in/jamessampica/" },
+        { text: "4.Twitter", url: "https://twitter.com/JamesSampica" }
+    ]
     if (cmd) {
-        let result = ""
-        
-        return result
+        window.location.href = places[cmd].url ;
+        return "Navigating to " + places[cmd].url + "..."
     }
     else {
-        let places = [
-            "1.Github (https://github.com/jamesSampica)",
-            "2.StackOverflow (https://stackoverflow.com/users/1950321/james-sampica)",
-            "3.LinkedIn (https://www.linkedin.com/in/jamessampica/)",
-            "4.Twitter (https://twitter.com/JamesSampica)"
-        ]
+        
         return "Check me out elsewhere...\n\n" + places.join("\n");
     }
 }
-goto.usage = () => "help goto"
+goto.usage = () => "goto 1"
 goto.doc = () => "Without an argument, lists available places to go to. If used with an argument a new window is opened that goes to the relevant place."
 
 // Set Focus to Input

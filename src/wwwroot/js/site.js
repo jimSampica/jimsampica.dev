@@ -68,12 +68,12 @@ function goto(cmd) {
         { text: "4.Twitter", url: "https://twitter.com/JamesSampica" }
     ]
     if (cmd) {
-        window.location.href = places[cmd].url ;
-        return "Navigating to " + places[cmd].url + "..."
+        window.open(places[cmd].url);
+        return `Going to ${places[cmd].url}...`
     }
     else {
         
-        return "Check me out elsewhere...\n\n" + places.join("\n");
+        return `Check me out elsewhere...\n\n${places.map(p => `${p.text} (${p.url})`).join("\n")}`;
     }
 }
 goto.usage = () => "goto 1"

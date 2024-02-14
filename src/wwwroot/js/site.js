@@ -1,7 +1,8 @@
 // Output Welcome message
-output('Original console design by Matt Cowley https://codepen.io/MattCowley/pen/jqBbdG/')
-output('')
-output('Welcome to example console program.')
+output('Hi there. 👋')
+output('My mission is helping organizations solve complex problems with practical solutions.')
+output('I enjoy the Microsoft C#/.NET space but love the craft more than any specific technology. I make an impact by taking a holistic approach to solving problems.')
+output('In my free time I can be found reading books on system design, architecture, and other programming topics.')
 
 // User Commands
 function echo (...a) {

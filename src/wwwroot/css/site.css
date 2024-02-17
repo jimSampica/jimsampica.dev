@@ -19,6 +19,9 @@ body {
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
   line-height: 1.5;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .console-input {
@@ -35,7 +38,7 @@ body {
   appearance: none;
   min-width: calc(100% - 2em);
   resize: none;
-  font-size: 1.15rem;
+  font-size: 1em;
 }
 
 .console-input:before {

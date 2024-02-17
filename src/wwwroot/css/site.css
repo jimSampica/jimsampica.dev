@@ -67,6 +67,7 @@ body {
 
 .console-inner {
   padding: 0.3em 1.1em;
+  max-width: 50%;
 }
 
 .output-text,

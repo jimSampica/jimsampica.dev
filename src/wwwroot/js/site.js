@@ -1,12 +1,3 @@
-intro();
-
-function intro() {
-    output('Hi there. 👋')
-    output('My mission is helping organizations solve complex problems with practical solutions.')
-    output('I enjoy the Microsoft C#/.NET space but love the craft more than any specific technology. I make an impact by taking a holistic approach to solving problems.')
-    output('In my free time I can be found reading books on system design, architecture, and other programming topics.')
-}
-
 // User Commands
 function echo(...a) {
     return a.join(' ')
@@ -28,7 +19,6 @@ var cmds = {
 
 function clear() {
     $("#outputs").html("")
-    intro();
 }
 clear.usage = "clear"
 clear.doc = "Clears the terminal screen and displays the introduction."

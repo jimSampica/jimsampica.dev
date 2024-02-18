@@ -12,6 +12,11 @@ body {
   background-position: center center;
 }
 
+.hero {
+ display: flex;
+ align-items: center;
+}
+
 .console {
   font-family: monospace, monospace;
   color: #fff;

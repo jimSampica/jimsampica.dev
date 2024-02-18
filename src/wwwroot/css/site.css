@@ -3,6 +3,9 @@ body {
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
   font-size: 1.15rem;
+}
+
+body {
   background-image: url(/media/bg4.png);
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,14 +15,10 @@ body {
 .console {
   font-family: monospace, monospace;
   color: #fff;
-  width: calc(100% - 3em);
-  max-width: 100%;
   max-height: calc(100% - 3em);
   overflow-y: auto;
-  margin: 1em 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  background: rgba(0, 0, 0, 0.5);
   z-index: 100;
   line-height: 1.5;
   margin: 0 auto;
@@ -72,6 +71,7 @@ body {
 .console-inner {
   padding: 0.3em 1.1em;
   max-width: 50%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .output-text,
@@ -100,13 +100,4 @@ body {
   color: #3df5b8;
   font-style: italic;
   opacity: 0.75;
-}
-
-.particles-js-canvas-el {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
 }

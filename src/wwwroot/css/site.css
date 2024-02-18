@@ -1,13 +1,16 @@
 html,
 body {
   min-height: 100%;
-  background-color: black;
   -webkit-font-smoothing: antialiased;
   font-size: 1.15rem;
+  background-image: url(/media/bg4.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .console {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   color: #fff;
   width: calc(100% - 3em);
   max-width: 100%;
@@ -25,7 +28,7 @@ body {
 }
 
 .console-input {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   background-color: transparent;
   border: none;
   outline: none;
@@ -52,6 +55,7 @@ body {
   color: #46f01d;
   vertical-align: top;
 }
+
 .output-text:before {
   content: '> ';
   color: #5F8787;

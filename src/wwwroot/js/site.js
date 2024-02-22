@@ -7,10 +7,10 @@ echo.doc = "Echos to output whatever arguments are input"
 
 var cmds = {
     goto,
+    contact,
     echo,
     clear,
-    help,
-    contact
+    help
 }
 
 /*

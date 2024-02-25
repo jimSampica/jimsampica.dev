@@ -26,7 +26,7 @@ body {
   justify-content: center;
 }
 
-.console-input {
+#console-input {
   font-family: monospace, monospace;
   background-color: transparent;
   border: none;
@@ -43,7 +43,7 @@ body {
   font-size: 1em;
 }
 
-.console-input:before {
+#console-input:before {
   content: '> ';
   color: #46f01d;
   vertical-align: top;

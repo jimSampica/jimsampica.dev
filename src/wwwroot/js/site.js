@@ -1,3 +1,12 @@
+var cli = $('#console-input');
+
+setTimeout(() => cli.val("h"), 2000);
+setTimeout(() => cli.val(cli.val() + "e"), 2500);
+setTimeout(() => cli.val(cli.val() + "l"), 3000);
+setTimeout(() => cli.val(cli.val() + "p"), 3500);
+setTimeout(() => cli.trigger($.Event( "keydown", { which: 13 } )), 4000);
+
+
 // User Commands
 function echo(...a) {
     return a.join(' ')
@@ -71,14 +80,14 @@ goto.doc = () => "Without an argument, lists available places to go to. If used 
 
 // Set Focus to Input
 $('.console').click(function () {
-    $('.console-input').focus()
+    cli.focus()
 })
 
 // Display input to Console
 function input() {
-    var cmd = $('.console-input').val()
+    var cmd = cli.val()
     $("#outputs").append("<div class='output-cmd'>" + cmd + "</div>")
-    $('.console-input').val("")
+    cli.val("")
     autosize.update($('textarea'))
     $("html, body").animate({
         scrollTop: $(document).height()
@@ -107,18 +116,19 @@ var cmdHistory = []
 var cursor = -1
 
 // Get User Command
-$('.console-input').on('keydown', function (event) {
+cli.on('keydown', function (event) {
+    console.log(event);
     if (event.which === 38) {
         // Up Arrow
         cursor = Math.min(++cursor, cmdHistory.length - 1)
-        $('.console-input').val(cmdHistory[cursor])
+        cli.val(cmdHistory[cursor])
     } else if (event.which === 40) {
         // Down Arrow
         cursor = Math.max(--cursor, -1)
         if (cursor === -1) {
-            $('.console-input').val('')
+            cli.val('')
         } else {
-            $('.console-input').val(cmdHistory[cursor])
+            cli.val(cmdHistory[cursor])
         }
     } else if (event.which === 13) {
         event.preventDefault();

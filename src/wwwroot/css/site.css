@@ -12,11 +12,6 @@ body {
   background-position: center center;
 }
 
-.hero {
- display: flex;
- align-items: center;
-}
-
 .console {
   font-family: monospace, monospace;
   color: #fff;
@@ -75,7 +70,6 @@ body {
 
 .console-inner {
   padding: 0.3em 1.1em;
-  max-width: 50%;
   background: rgba(0, 0, 0, 0.5);
 }
 

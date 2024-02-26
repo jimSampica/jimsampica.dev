@@ -9,10 +9,10 @@ setTimeout(() => cli.trigger($.Event( "keydown", { which: 13 } )), 4000);
 
 // User Commands
 function echo(...a) {
-    return a.join(' ')
+    return a.join(' ');
 }
-echo.usage = "echo arg [arg ...]"
-echo.doc = "Echos to output whatever arguments are input"
+echo.usage = "echo arg [arg ...]";
+echo.doc = "Echos to output whatever arguments are input";
 
 var cmds = {
     goto,
@@ -20,44 +20,44 @@ var cmds = {
     echo,
     clear,
     help
-}
+};
 
 /*
  * * * * * * * * USER INTERFACE * * * * * * *
  */
 
 function clear() {
-    $("#outputs").html("")
+    $("#outputs").html("");
 }
-clear.usage = "clear"
-clear.doc = "Clears the terminal screen and displays the introduction."
+clear.usage = "clear";
+clear.doc = "Clears the terminal screen and displays the introduction.";
 
 function help(cmd) {
     if (cmd) {
-        let result = ""
-        let usage = cmds[cmd].usage
-        let doc = cmds[cmd].doc
-        result += (typeof usage === 'function') ? usage() : usage
-        result += "\n"
-        result += (typeof doc === 'function') ? doc() : doc
-        return result
+        let result = "";
+        let usage = cmds[cmd].usage;
+        let doc = cmds[cmd].doc;
+        result += (typeof usage === 'function') ? usage() : usage;
+        result += "\n";
+        result += (typeof doc === 'function') ? doc() : doc;
+        return result;
     } else {
-        let result = "**Commands:**\n\n"
-        print = Object.keys(cmds)
+        let result = "**Commands:**\n\n";
+        print = Object.keys(cmds);
         for (let p of print) {
-            result += "- " + p + "\n"
+            result += "- " + p + "\n";
         }
-        return result
+        return result;
     }
 }
-help.usage = () => "help [command]"
-help.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command."
+help.usage = () => "help [command]";
+help.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command.";
 
 function contact(){
 
 }
-contact.usage = () => "help [command]"
-contact.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command."
+contact.usage = () => "help [command]";
+contact.doc = () => "Without an argument, lists available commands. If used with an argument displays the usage & docs for the command.";
 
 function goto(cmd) {
     let places = [
@@ -68,31 +68,31 @@ function goto(cmd) {
     ]
     if (cmd) {
         window.open(places[cmd].url);
-        return `Going to ${places[cmd].url}...`
+        return `Going to ${places[cmd].url}...`;
     }
     else {
         
         return `Check me out elsewhere...\n\n${places.map(p => `${p.text} (${p.url})`).join("\n")}`;
     }
 }
-goto.usage = () => "goto 1"
-goto.doc = () => "Without an argument, lists available places to go to. If used with an argument a new window is opened that goes to the relevant place."
+goto.usage = () => "goto 1";
+goto.doc = () => "Without an argument, lists available places to go to. If used with an argument a new window is opened that goes to the relevant place.";
 
 // Set Focus to Input
 $('.console').click(function () {
-    cli.focus()
+    cli.focus();
 })
 
 // Display input to Console
 function input() {
-    var cmd = cli.val()
+    var cmd = cli.val();
     $("#outputs").append("<div class='output-cmd'>" + cmd + "</div>")
-    cli.val("")
-    autosize.update($('textarea'))
+    cli.val("");
+    autosize.update($('textarea'));
     $("html, body").animate({
         scrollTop: $(document).height()
     }, 300);
-    return cmd
+    return cmd;
 }
 
 // Output to Console
@@ -101,58 +101,56 @@ function output(print) {
         window.md = window.markdownit({
             linkify: true,
             breaks: true
-        })
+        });
     }
-    $("#outputs").append(window.md.render(print))
+    $("#outputs").append(window.md.render(print));
     $(".console").scrollTop($('.console-inner').height());
 }
 
 // Break Value
 var newLine = "<br/> &nbsp;";
 
-autosize($('textarea'))
+autosize($('textarea'));
 
-var cmdHistory = []
-var cursor = -1
+var cmdHistory = [];
+var cursor = -1;
 
 // Get User Command
 cli.on('keydown', function (event) {
-    console.log(event);
     if (event.which === 38) {
         // Up Arrow
-        cursor = Math.min(++cursor, cmdHistory.length - 1)
-        cli.val(cmdHistory[cursor])
+        cursor = Math.min(++cursor, cmdHistory.length - 1);
+        cli.val(cmdHistory[cursor]);
     } else if (event.which === 40) {
         // Down Arrow
         cursor = Math.max(--cursor, -1)
         if (cursor === -1) {
-            cli.val('')
+            cli.val('');
         } else {
-            cli.val(cmdHistory[cursor])
+            cli.val(cmdHistory[cursor]);
         }
     } else if (event.which === 13) {
         event.preventDefault();
-        cursor = -1
-        let text = input()
-        let args = getTokens(text)[0]
-        let cmd = args.shift().value
-        args = args.filter(x => x.type !== 'whitespace').map(x => x.value)
-        cmdHistory.unshift(text)
+        cursor = -1;
+        let text = input();
+        let args = getTokens(text)[0];
+        let cmd = args.shift().value;
+        args = args.filter(x => x.type !== 'whitespace').map(x => x.value);
+        cmdHistory.unshift(text);
         if (typeof cmds[cmd] === 'function') {
-            let result = cmds[cmd](...args)
+            let result = cmds[cmd](...args);
             if (result === void (0)) {
                 // output nothing
             } else if (result instanceof Promise) {
-                result.then(output)
+                result.then(output);
             } else {
-                console.log(result)
-                output(result)
+                output(result);
             }
         } else if (cmd.trim() === '') {
-            output('')
+            output('');
         } else {
-            output("Command not found: `" + cmd + "`")
-            output("Use 'help' for list of commands.")
+            output("Command not found: `" + cmd + "`");
+            output("Use 'help' for list of commands.");
         }
     }
 });

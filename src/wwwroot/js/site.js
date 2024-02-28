@@ -1,4 +1,4 @@
-var cli = $('#console-input');
+var cli = $("#console-input");
 
 setTimeout(() => cli.val("h"), 2000);
 setTimeout(() => cli.val(cli.val() + "e"), 2500);
@@ -9,7 +9,7 @@ setTimeout(() => cli.trigger($.Event( "keydown", { which: 13 } )), 4000);
 
 // User Commands
 function echo(...a) {
-    return a.join(' ');
+    return a.join(" ");
 }
 echo.usage = "echo arg [arg ...]";
 echo.doc = "Echos to output whatever arguments are input";
@@ -37,9 +37,9 @@ function help(cmd) {
         let result = "";
         let usage = cmds[cmd].usage;
         let doc = cmds[cmd].doc;
-        result += (typeof usage === 'function') ? usage() : usage;
+        result += (typeof usage === "function") ? usage() : usage;
         result += "\n";
-        result += (typeof doc === 'function') ? doc() : doc;
+        result += (typeof doc === "function") ? doc() : doc;
         return result;
     } else {
         let result = "**Commands:**\n\n";
@@ -79,7 +79,7 @@ goto.usage = () => "goto 1";
 goto.doc = () => "Without an argument, lists available places to go to. If used with an argument a new window is opened that goes to the relevant place.";
 
 // Set Focus to Input
-$('.console').click(function () {
+$(".console").click(function () {
     cli.focus();
 })
 
@@ -88,7 +88,7 @@ function input() {
     var cmd = cli.val();
     $("#outputs").append("<div class='output-cmd'>" + cmd + "</div>")
     cli.val("");
-    autosize.update($('textarea'));
+    autosize.update($("textarea"));
     $("html, body").animate({
         scrollTop: $(document).height()
     }, 300);
@@ -104,19 +104,19 @@ function output(print) {
         });
     }
     $("#outputs").append(window.md.render(print));
-    $(".console").scrollTop($('.console-inner').height());
+    $(".console").scrollTop($(".console-inner").height());
 }
 
 // Break Value
 var newLine = "<br/> &nbsp;";
 
-autosize($('textarea'));
+autosize($("textarea"));
 
 var cmdHistory = [];
 var cursor = -1;
 
 // Get User Command
-cli.on('keydown', function (event) {
+cli.on("keydown", function (event) {
     if (event.which === 38) {
         // Up Arrow
         cursor = Math.min(++cursor, cmdHistory.length - 1);
@@ -125,7 +125,7 @@ cli.on('keydown', function (event) {
         // Down Arrow
         cursor = Math.max(--cursor, -1)
         if (cursor === -1) {
-            cli.val('');
+            cli.val("");
         } else {
             cli.val(cmdHistory[cursor]);
         }
@@ -135,9 +135,9 @@ cli.on('keydown', function (event) {
         let text = input();
         let args = getTokens(text)[0];
         let cmd = args.shift().value;
-        args = args.filter(x => x.type !== 'whitespace').map(x => x.value);
+        args = args.filter(x => x.type !== "whitespace").map(x => x.value);
         cmdHistory.unshift(text);
-        if (typeof cmds[cmd] === 'function') {
+        if (typeof cmds[cmd] === "function") {
             let result = cmds[cmd](...args);
             if (result === void (0)) {
                 // output nothing
@@ -146,8 +146,8 @@ cli.on('keydown', function (event) {
             } else {
                 output(result);
             }
-        } else if (cmd.trim() === '') {
-            output('');
+        } else if (cmd.trim() === "") {
+            output("");
         } else {
             output("Command not found: `" + cmd + "`");
             output("Use 'help' for list of commands.");

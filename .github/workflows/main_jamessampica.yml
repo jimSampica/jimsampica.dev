@@ -1,58 +1,49 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - jamesSampica
+name: Build and Deploy App
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+    paths-ignore:
+      - README.md
   workflow_dispatch:
+
+permissions:
+      id-token: write
+      contents: read
 
 jobs:
   build:
-    runs-on: windows-latest
-    env:
-      projectPath: .\src\mySite.csproj
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '8.x'
-          include-prerelease: true
-
-      - name: Build with dotnet
-        run: dotnet build ${{env.projectPath}} -c Release
-
-      - name: dotnet publish
-        run: dotnet publish ${{env.projectPath}} -c Release -o ${{env.DOTNET_ROOT}}/mySite
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/mySite
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: .net-app
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'jamesSampica'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8C6D97C2E92A4A799471FA6386F469B0 }}
-          package: .
+    - uses: actions/checkout@v4
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Push to Docker Hub
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./docker/Dockerfile
+        push: true
+        tags: jamessampica/thestudio:latest
+    - name: Az CLI login
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - name: Deploy app
+      uses: azure/CLI@v2
+      with:
+        inlineScript: |
+          az stack group create \
+            --action-on-unmanage deleteAll \
+            --name the-studio \
+            --resource-group the-studio-rg \
+            --template-file iac/main.bicep \
+            --deny-settings-mode 'none' \
+            --parameters \
+                dockerHubUsername=${{ secrets.DOCKERHUB_USERNAME }} \
+                dockerHubToken=${{ secrets.DOCKERHUB_TOKEN }}

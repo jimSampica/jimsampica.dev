@@ -31,6 +31,4 @@ jobs:
             --name my-site \
             --resource-group my-site-rg \
             --template-file iac/main.bicep \
-            --deny-settings-mode 'none' \
-            --parameters \
-                repositoryToken=${{ secrets.GITHUB_TOKEN }}
+            --deny-settings-mode 'none'

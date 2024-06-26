@@ -33,4 +33,4 @@ jobs:
             --template-file iac/main.bicep \
             --deny-settings-mode 'none' \
             --parameters \
-                repositoryToken=${{ secrets.GITHUB_TOKEN }}
+                repositoryToken=${{ secrets.STATIC_SITE_GITHUB_PAT }}

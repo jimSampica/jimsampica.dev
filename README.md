@@ -1,3 +1,3 @@
-My minimalist personal site. 🙂
+Codebase for my personal site. 🙂
 
-Built with ASP.NET and hosted on Azure at [https://jamessampica.azurewebsites.net/](https://jamessampica.azurewebsites.net/)
+Hosted at [https://jamessampica.azurewebsites.net/](https://jamessampica.azurewebsites.net/)

@@ -16,28 +16,56 @@
 
     @media (max-width: 576px) {
       html {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
       }
     }
 
     @media (max-width: 768px) {
       html {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
       }
     }
 
     @media (max-width: 992px) {
       html {
-        font-size: 1.5rem;
+        font-size: 2.25rem;
       }
+    }
+
+    .social-icon {
+      width: 1.75em;
+      height: 1.75em;
+    }
+
+    .social-link {
+      padding: 5px;
+    }
+
+    .social-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-top: 10px;
+    }
+
+    .text-center {
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
-  <h1>James Sampica</h1>
-    <p>simple design. quality code.</p>
-    <p><a href="mailto:jtsampica@gmail.com">jtsampica@gmail.com</a></p>
+  <h1 class="text-center">James Sampica</h1>
+  <p class="text-center">simple design. quality code.</p>
+  <p class="text-center"><a href="mailto:jtsampica@gmail.com">jtsampica@gmail.com</a></p>
+  <div class="social-footer">
+    <a class="social-link" href="https://github.com/jamesSampica"><img class="social-icon"
+        src="./media/github.svg" /></a>
+    <a class="social-link" href="https://linkedin.com/in/jamessampica"><img class="social-icon"
+        src="./media/linkedin.svg" /></a>
+    <a class="social-link" href="https://twitter.com/JamesSampica"><img class="social-icon"
+        src="./media/twitter.svg" /></a>
+  </div>
 </body>
 
 </html>
